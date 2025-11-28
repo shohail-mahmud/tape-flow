@@ -88,7 +88,7 @@ This project is free for personal use.
 
 ## 👤 Author
 
-**shohailmahmud09**  
+**Shohail Mahmud**  
 Instagram: **[@shohailmahmud09](https://instagram.com/shohailmahmud09)**
 
 **⭐ Star this repo if you find it useful!**
