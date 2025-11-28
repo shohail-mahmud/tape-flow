@@ -7,7 +7,14 @@ interface TapeReelProps {
 export const TapeReel = ({ isSpinning }: TapeReelProps) => {
   return (
     <motion.div
-      className="relative w-16 h-16 rounded-full tape-reel-gradient"
+      className="relative rounded-full tape-reel-gradient"
+      style={{
+        width: "4rem",
+        height: "4rem",
+        minWidth: "4rem",
+        minHeight: "4rem",
+        aspectRatio: "1/1",
+      }}
       animate={{ rotate: isSpinning ? 360 : 0 }}
       transition={{
         duration: 1.5,
@@ -16,10 +23,24 @@ export const TapeReel = ({ isSpinning }: TapeReelProps) => {
       }}
     >
       {/* Inner circle */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background border-2 border-border" />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-background border-2 border-border"
+        style={{
+          width: "2rem",
+          height: "2rem",
+          aspectRatio: "1/1",
+        }}
+      />
       
       {/* Center hub */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-accent glow-accent" />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent glow-accent"
+        style={{
+          width: "0.75rem",
+          height: "0.75rem",
+          aspectRatio: "1/1",
+        }}
+      />
     </motion.div>
   );
 };

@@ -4,6 +4,7 @@ import { YouTubeInput } from "@/components/YouTubeInput";
 import { FileUpload } from "@/components/FileUpload";
 import { Playlist } from "@/components/Playlist";
 import { ThemeSelector } from "@/components/ThemeSelector";
+import { AboutDialog } from "@/components/AboutDialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Music } from "lucide-react";
 
@@ -121,7 +122,10 @@ const Index = () => {
             </h1>
             <p className="text-xs text-muted-foreground">YouTube Audio Player</p>
           </div>
-          <ThemeSelector />
+          <div className="flex items-center gap-2">
+            <AboutDialog />
+            <ThemeSelector />
+          </div>
         </div>
 
         {/* Main Player */}
