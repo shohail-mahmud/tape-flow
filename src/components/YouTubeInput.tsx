@@ -12,18 +12,20 @@ interface YouTubeInputProps {
 const API_ENDPOINTS = {
   piped: [
     "https://pipedapi.kavin.rocks",
+    "https://piped-api.garudalinux.org",
+    "https://pipedapi.colinslegacy.com",
     "https://api.piped.yt",
     "https://pipedapi.in.projectsegfau.lt",
   ],
   invidious: [
+    "https://yewtu.be",
     "https://inv.nadeko.net",
     "https://invidious.nerdvpn.de",
-    "https://invidious.jing.rocks",
   ],
   invidious2: [
+    "https://invidious.f5.si",
+    "https://inv.perditum.com",
     "https://yt.artemislena.eu",
-    "https://invidious.privacydev.net",
-    "https://vid.puffyan.us",
   ],
 };
 

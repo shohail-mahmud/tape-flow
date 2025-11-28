@@ -6,6 +6,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "./ui/button";
 import { Info, Instagram } from "lucide-react";
 
@@ -17,13 +18,15 @@ export const AboutDialog = () => {
           <Info className="w-4 h-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md max-h-[90vh]">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <span className="text-2xl">🎵</span>
             TapeFlow
           </DialogTitle>
-          <DialogDescription className="space-y-4 pt-4">
+        </DialogHeader>
+        <ScrollArea className="max-h-[60vh] pr-4">
+          <DialogDescription className="space-y-4 pt-2">
             <div>
               <h4 className="font-medium text-foreground mb-2">About</h4>
               <p className="text-sm">
@@ -88,7 +91,7 @@ export const AboutDialog = () => {
               <p>Open source • Privacy-focused • No tracking</p>
             </div>
           </DialogDescription>
-        </DialogHeader>
+        </ScrollArea>
       </DialogContent>
     </Dialog>
   );
