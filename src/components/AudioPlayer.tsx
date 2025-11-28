@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { TapeReel } from "./TapeReel";
 import { VUMeter } from "./VUMeter";
-import { Play, Pause, SkipBack, SkipForward, FastForward, Rewind, Volume2 } from "lucide-react";
+import { Play, Pause, SkipBack, SkipForward, FastForward, Rewind, Volume2, Download } from "lucide-react";
 import { Button } from "./ui/button";
 import { Slider } from "./ui/slider";
+import { useToast } from "@/hooks/use-toast";
 
 interface Track {
   name: string;
@@ -34,6 +35,7 @@ export const AudioPlayer = ({
   const [volume, setVolume] = useState(80);
   const [vuLeft, setVuLeft] = useState(0);
   const [vuRight, setVuRight] = useState(0);
+  const { toast } = useToast();
 
   useEffect(() => {
     if (audioRef.current) {
@@ -115,16 +117,70 @@ export const AudioPlayer = ({
     }
   };
 
+  const handleDownload = async () => {
+    if (!currentTrack) {
+      toast({
+        title: "No track loaded",
+        description: "Please load a track first",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      // For local files, we can download directly
+      if (currentTrack.type === "local") {
+        const a = document.createElement("a");
+        a.href = currentTrack.url;
+        a.download = currentTrack.name;
+        a.click();
+        toast({
+          title: "Download started",
+          description: currentTrack.name,
+        });
+      } else {
+        // For YouTube streams, fetch and download
+        toast({
+          title: "Downloading...",
+          description: "This may take a moment",
+        });
+
+        const response = await fetch(currentTrack.url);
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${currentTrack.name}.mp3`;
+        a.click();
+        URL.revokeObjectURL(url);
+
+        toast({
+          title: "Download complete",
+          description: currentTrack.name,
+        });
+      }
+    } catch (error) {
+      console.error("Download error:", error);
+      toast({
+        title: "Download failed",
+        description: "Unable to download this track",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="card rounded-2xl p-6 transition-smooth">
       {/* Tape Visualization */}
-      <div className="flex items-center justify-center gap-6 mb-6">
-        <TapeReel isSpinning={isPlaying} />
+      <div className="flex items-center justify-center gap-3 sm:gap-6 mb-6">
+        <div className="flex-shrink-0">
+          <TapeReel isSpinning={isPlaying} />
+        </div>
         
-        <div className="flex-1 max-w-[140px]">
+        <div className="flex-1 max-w-[140px] min-w-0">
           <div className="h-0.5 rounded bg-border mb-3" />
           <div className="text-center">
-            <p className="text-sm font-medium truncate">
+            <p className="text-sm font-medium truncate px-2">
               {currentTrack?.name || "No track loaded"}
             </p>
             <p className="text-xs text-muted-foreground mt-1">
@@ -134,7 +190,9 @@ export const AudioPlayer = ({
           <div className="h-0.5 rounded bg-border mt-3" />
         </div>
         
-        <TapeReel isSpinning={isPlaying} />
+        <div className="flex-shrink-0">
+          <TapeReel isSpinning={isPlaying} />
+        </div>
       </div>
 
       {/* Progress Bar */}
@@ -205,7 +263,7 @@ export const AudioPlayer = ({
         </Button>
       </div>
 
-      {/* Volume */}
+      {/* Volume & Download */}
       <div className="flex items-center gap-3">
         <Volume2 className="w-4 h-4 text-muted-foreground flex-shrink-0" />
         <Slider
@@ -215,7 +273,17 @@ export const AudioPlayer = ({
           step={1}
           className="flex-1"
         />
-        <span className="text-xs text-muted-foreground w-10 text-right">{volume}%</span>
+        <span className="text-xs text-muted-foreground w-10 text-center">{volume}%</span>
+        <Button
+          variant="outline"
+          size="icon"
+          className="rounded-full w-9 h-9 flex-shrink-0"
+          onClick={handleDownload}
+          disabled={!currentTrack}
+          title="Download track"
+        >
+          <Download className="w-4 h-4" />
+        </Button>
       </div>
 
       <audio
