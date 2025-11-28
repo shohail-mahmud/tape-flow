@@ -30,49 +30,81 @@ A retro-inspired YouTube audio player with a vintage cassette tape aesthetic. St
 
 ## 📦 Deployment
 
-### Deploy to Vercel (Recommended)
+### Deploy to Vercel (Recommended - Free)
 
 The easiest way to deploy TapeFlow is using Vercel's free tier:
 
-1. **Fork or Clone the Repository**
+1. **Push to GitHub**
    ```sh
    git clone <YOUR_GIT_URL>
    cd <YOUR_PROJECT_NAME>
+   git add .
+   git commit -m "Initial commit"
+   git push origin main
    ```
 
-2. **Install Vercel CLI** (optional)
+2. **Deploy to Vercel**
+   - Visit [Vercel Dashboard](https://vercel.com/new)
+   - Import your GitHub repository
+   - Vercel auto-detects settings from `vercel.json`
+   - Click "Deploy"
+
+3. **Optional: GitHub Actions Auto-Deploy**
+   - Add these secrets to your GitHub repo (Settings → Secrets):
+     - `VERCEL_TOKEN`: Get from [Vercel Account Settings](https://vercel.com/account/tokens)
+     - `VERCEL_ORG_ID`: Found in Vercel project settings
+     - `VERCEL_PROJECT_ID`: Found in Vercel project settings
+   - The included `.github/workflows/vercel-deploy.yml` will auto-deploy on push
+
+### Deploy to Netlify (Free Alternative)
+
+1. **Deploy via Netlify Dashboard**
+   - Visit [Netlify](https://app.netlify.com/start)
+   - Connect your GitHub repository
+   - Netlify auto-detects settings from `netlify.toml`
+   - Click "Deploy site"
+
+2. **Or use Netlify CLI**:
    ```sh
-   npm i -g vercel
+   npm install -g netlify-cli
+   npm run build
+   netlify deploy --prod
    ```
 
-3. **Deploy**
-   - **Option A**: Push to GitHub and import in [Vercel Dashboard](https://vercel.com/new)
-   - **Option B**: Run `vercel` in your project directory
+### Deploy to GitHub Pages (Free)
 
-4. **Configuration**
-   - The project includes a `vercel.json` for optimal configuration
-   - No environment variables needed (all APIs are public)
-   - Build command: `npm run build`
-   - Output directory: `dist`
+1. Update `vite.config.ts`:
+   ```ts
+   export default defineConfig({
+     base: '/your-repo-name/',
+     // ... rest of config
+   });
+   ```
 
-### Deploy to Other Platforms
+2. Build and deploy:
+   ```sh
+   npm run build
+   cd dist
+   git init
+   git add -A
+   git commit -m 'deploy'
+   git push -f git@github.com:username/repo.git main:gh-pages
+   ```
 
-**Netlify**:
+3. Enable GitHub Pages in repo Settings → Pages → Source: gh-pages branch
+
+### Self-Hosted (Free - Your Own Server)
+
 ```sh
 npm run build
-# Deploy the 'dist' folder
+# Serve the 'dist' folder with any static file server:
+# - nginx
+# - Apache
+# - caddy
+# - serve (npx serve dist)
 ```
 
-**GitHub Pages**:
-1. Update `vite.config.ts` to set the correct `base` path
-2. Run `npm run build`
-3. Deploy the `dist` folder to `gh-pages` branch
-
-**Self-Hosted**:
-```sh
-npm run build
-# Serve the 'dist' folder with any static file server
-```
+**All deployment options are completely free and require no API keys or environment variables!**
 
 ## 🔧 Development
 
