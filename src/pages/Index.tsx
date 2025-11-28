@@ -184,6 +184,9 @@ const Index = () => {
           <p className="text-xs text-muted-foreground">
             ⌨️ Space: Play/Pause | N: Next | P: Previous
           </p>
+          <p className="text-xs text-muted-foreground">
+            Developer: <a href="https://instagram.com/shohailmahmud09" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">@shohailmahmud09</a>
+          </p>
         </div>
       </div>
     </div>
