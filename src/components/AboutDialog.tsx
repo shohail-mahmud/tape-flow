@@ -46,6 +46,28 @@ export const AboutDialog = () => {
             </div>
 
             <div>
+              <h4 className="font-medium text-foreground mb-2">API Details</h4>
+              <div className="text-sm space-y-2">
+                <p>
+                  TapeFlow uses free, privacy-respecting APIs to stream YouTube audio without
+                  tracking:
+                </p>
+                <ul className="space-y-1 list-disc list-inside ml-2">
+                  <li>
+                    <strong>Piped API</strong>: Privacy-focused YouTube proxy (pipedapi.kavin.rocks)
+                  </li>
+                  <li>
+                    <strong>Invidious API</strong>: Alternative YouTube frontend (multiple instances)
+                  </li>
+                </ul>
+                <p className="text-xs text-muted-foreground mt-2">
+                  All APIs are open-source and public. No API keys required. Streams are fetched
+                  directly from YouTube servers via these privacy-preserving proxies.
+                </p>
+              </div>
+            </div>
+
+            <div>
               <h4 className="font-medium text-foreground mb-2">Developer</h4>
               <div className="flex items-center gap-2">
                 <a
@@ -60,9 +82,10 @@ export const AboutDialog = () => {
               </div>
             </div>
 
-            <div className="text-xs text-muted-foreground pt-2 border-t border-border">
+            <div className="text-xs text-muted-foreground pt-2 border-t border-border space-y-1">
               <p>Version 1.0.0</p>
-              <p className="mt-1">Made with ❤️ using React & TypeScript</p>
+              <p>Built with React, TypeScript & Vite</p>
+              <p>Open source • Privacy-focused • No tracking</p>
             </div>
           </DialogDescription>
         </DialogHeader>
