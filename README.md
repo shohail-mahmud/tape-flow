@@ -188,9 +188,7 @@ Contributions are welcome! Feel free to:
 
 MIT License - feel free to use this project for personal or commercial purposes.
 
-## 👨‍💻 Developer
-
-Created by [@shohailmahmud09](https://instagram.com/shohailmahmud09)
+©shohailmahmud09
 
 ## 🙏 Acknowledgments
 

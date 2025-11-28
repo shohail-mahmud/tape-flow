@@ -74,14 +74,14 @@ export const Playlist = ({
             <Button
               variant="ghost"
               size="icon"
-              className="h-8 w-8 opacity-50 hover:opacity-100"
+              className="h-10 w-10 min-w-[40px] flex-shrink-0 opacity-70 hover:opacity-100 hover:bg-destructive/10 hover:text-destructive touch-manipulation"
               onClick={(e) => {
                 e.stopPropagation();
                 onTrackRemove(index);
               }}
               title="Remove"
             >
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5" />
             </Button>
           </div>
         ))}
