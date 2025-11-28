@@ -1,26 +1,102 @@
-# Welcome to your Lovable project
+# TapeFlow 🎵
 
-## Project info
+A retro-inspired YouTube audio player with a vintage cassette tape aesthetic. Stream YouTube audio or play local files with beautiful themes and smooth animations.
 
-**URL**: https://lovable.dev/projects/87e5e336-1cad-4897-8e60-17ec8f45e888
+![TapeFlow](https://img.shields.io/badge/Built%20with-React%20%26%20TypeScript-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+- 🎬 **YouTube Audio Streaming** - Stream audio from YouTube using privacy-focused APIs (Piped/Invidious)
+- 📁 **Local File Support** - Play MP3, WAV, OGG, FLAC, and M4A files
+- 🎨 **5 Beautiful Themes** - Dark, Light, Sunset, Ocean, and Forest
+- 📝 **Playlist Management** - Create and manage your audio playlists
+- ⬇️ **Download Tracks** - Save audio for offline listening
+- ⌨️ **Keyboard Shortcuts** - Space to play/pause, N for next, P for previous
+- 📱 **Fully Responsive** - Works perfectly on mobile, tablet, and desktop
 
-**Use Lovable**
+## 🚀 Live Demo
+
+**Lovable Project**: https://lovable.dev/projects/87e5e336-1cad-4897-8e60-17ec8f45e888
+
+## 🛠️ Tech Stack
+
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **APIs**: Piped API, Invidious API (no API keys required)
+
+## 📦 Deployment
+
+### Deploy to Vercel (Recommended)
+
+The easiest way to deploy TapeFlow is using Vercel's free tier:
+
+1. **Fork or Clone the Repository**
+   ```sh
+   git clone <YOUR_GIT_URL>
+   cd <YOUR_PROJECT_NAME>
+   ```
+
+2. **Install Vercel CLI** (optional)
+   ```sh
+   npm i -g vercel
+   ```
+
+3. **Deploy**
+   - **Option A**: Push to GitHub and import in [Vercel Dashboard](https://vercel.com/new)
+   - **Option B**: Run `vercel` in your project directory
+
+4. **Configuration**
+   - The project includes a `vercel.json` for optimal configuration
+   - No environment variables needed (all APIs are public)
+   - Build command: `npm run build`
+   - Output directory: `dist`
+
+### Deploy to Other Platforms
+
+**Netlify**:
+```sh
+npm run build
+# Deploy the 'dist' folder
+```
+
+**GitHub Pages**:
+1. Update `vite.config.ts` to set the correct `base` path
+2. Run `npm run build`
+3. Deploy the `dist` folder to `gh-pages` branch
+
+**Self-Hosted**:
+```sh
+npm run build
+# Serve the 'dist' folder with any static file server
+```
+
+## 🔧 Development
+
+### Prerequisites
+
+- Node.js 18+ and npm
+
+### Local Setup
+
+There are several ways to work on this project:
+
+**1. Use Lovable** (Recommended for quick edits)
 
 Simply visit the [Lovable Project](https://lovable.dev/projects/87e5e336-1cad-4897-8e60-17ec8f45e888) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
-**Use your preferred IDE**
+**2. Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Work locally using your own IDE. Changes pushed to GitHub will sync to Lovable automatically.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Requirements: Node.js 18+ & npm - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+Steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
@@ -36,38 +112,60 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+**3. Edit directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Navigate to the file, click "Edit" (pencil icon), make changes, and commit
 
-**Use GitHub Codespaces**
+**4. Use GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Click "Code" → "Codespaces" → "New codespace"
+- Edit in the cloud IDE and commit when done
 
-## What technologies are used for this project?
+## ⚙️ API Information
 
-This project is built with:
+TapeFlow uses **free, public APIs** that require **no API keys or authentication**:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Piped API
+- Privacy-focused YouTube proxy
+- Endpoints: pipedapi.kavin.rocks, api.piped.yt
+- Open source: [github.com/TeamPiped/Piped](https://github.com/TeamPiped/Piped)
 
-## How can I deploy this project?
+### Invidious API
+- Alternative YouTube frontend
+- Multiple public instances
+- Open source: [github.com/iv-org/invidious](https://github.com/iv-org/invidious)
 
-Simply open [Lovable](https://lovable.dev/projects/87e5e336-1cad-4897-8e60-17ec8f45e888) and click on Share -> Publish.
+**Privacy**: Both APIs act as proxies, fetching YouTube data without tracking users. All API calls are made client-side from the browser.
 
-## Can I connect a custom domain to my Lovable project?
+## ⌨️ Keyboard Shortcuts
 
-Yes, you can!
+- `Space` - Play/Pause
+- `N` - Next track
+- `P` - Previous track
+- `→` - Seek forward
+- `←` - Seek backward
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🤝 Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Contributions are welcome! Feel free to:
+- Report bugs
+- Suggest features
+- Submit pull requests
+
+## 📄 License
+
+MIT License - feel free to use this project for personal or commercial purposes.
+
+## 👨‍💻 Developer
+
+Created by [@shohailmahmud09](https://instagram.com/shohailmahmud09)
+
+## 🙏 Acknowledgments
+
+- Built with [Lovable](https://lovable.dev)
+- UI components from [shadcn/ui](https://ui.shadcn.com)
+- APIs: Piped & Invidious projects
+
+---
+
+**⭐ Star this repo if you find it useful!**
