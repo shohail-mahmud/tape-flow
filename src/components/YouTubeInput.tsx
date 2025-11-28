@@ -18,14 +18,14 @@ const API_ENDPOINTS = {
     "https://pipedapi.in.projectsegfau.lt",
   ],
   invidious: [
-    "https://yewtu.be",
-    "https://inv.nadeko.net",
-    "https://invidious.nerdvpn.de",
+    "https://inv.tux.pizza",
+    "https://invidious.privacyredirect.com",
+    "https://inv.us.projectsegfau.lt",
   ],
   invidious2: [
-    "https://invidious.f5.si",
-    "https://inv.perditum.com",
-    "https://yt.artemislena.eu",
+    "https://iv.nboeck.de",
+    "https://invidious.fdn.fr",
+    "https://inv.odyssey346.dev",
   ],
 };
 
